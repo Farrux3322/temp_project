@@ -5,6 +5,7 @@ import 'package:temp_project/ui/home/home_screen.dart';
 
 
 Future<void> main()async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -14,6 +15,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+    LocalNotificationService.localNotificationService.init(navigatorKey);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
